@@ -14,19 +14,19 @@ public class MethodCall {
     private final LocalDateTime startTime;
     private LocalDateTime endTime;
 
-    //defined inside the method
-    private List<Variable> variables;
 
     //pass from the outside of the method
     private List<Variable> arguments;
 
-    public MethodCall(String name, String className, List<Variable> variables, List<Variable> arguments) {
+    //returned by the method
+    private Variable returnedValue;
+
+    public MethodCall(String name, String className, List<Variable> arguments) {
         this.id = UUID.randomUUID().toString();
         this.name = name;
         this.className = className;
         this.startTime = LocalDateTime.now();
         this.endTime = LocalDateTime.now();
-        this.variables = variables;
         this.arguments = arguments;
     }
 
@@ -50,10 +50,6 @@ public class MethodCall {
         return endTime;
     }
 
-    public List<Variable> getVariables() {
-        return variables;
-    }
-
     public List<Variable> getArguments() {
         return arguments;
     }
@@ -62,4 +58,15 @@ public class MethodCall {
         this.endTime = endTime;
     }
 
+    public void setArguments(List<Variable> arguments) {
+        this.arguments = arguments;
+    }
+
+    public Variable getReturnedValue() {
+        return returnedValue;
+    }
+
+    public void setReturnedValue(Variable returnedValue) {
+        this.returnedValue = returnedValue;
+    }
 }

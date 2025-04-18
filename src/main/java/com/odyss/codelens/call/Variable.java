@@ -12,7 +12,7 @@ public class Variable {
 
     private static final ObjectMapper objectMapper = new ObjectMapper(); // Create a static instance
 
-    public Variable(String name, String type, String value, LocalDateTime timestamp) {
+    private Variable(String name, String type, String value, LocalDateTime timestamp) {
         this.name = name;
         this.type = type;
         this.value = value;
