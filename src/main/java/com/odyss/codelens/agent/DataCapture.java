@@ -16,11 +16,7 @@ public class DataCapture {
 
     public static DataCapture getInstance() {
         if (instance == null) {
-            synchronized (DataCapture.class) {
-                if (instance == null) {
-                    instance = new DataCapture();
-                }
-            }
+            instance = new DataCapture();
         }
         return instance;
     }
