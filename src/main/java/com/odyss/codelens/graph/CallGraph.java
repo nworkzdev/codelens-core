@@ -18,13 +18,6 @@ public class CallGraph {
         this.edges = Collections.emptyList();
     }
 
-    public CallGraph(List<GraphNode> nodes, List<GraphEdge> edges) {
-        id = UUID.randomUUID().toString();
-        timestamp = LocalDateTime.now();
-        this.nodes = nodes;
-        this.edges = edges;
-    }
-
     public List<GraphNode> getNodes() {
         return nodes;
     }
