@@ -7,6 +7,7 @@ import java.util.Objects;
 public class GraphNode {
     private final String id;
     private final MethodCall methodCall;
+    private int callCount = 1;
 
     public GraphNode(MethodCall methodCall) {
         this.id = methodCall.getId();
@@ -32,5 +33,13 @@ public class GraphNode {
 
     public MethodCall getMethodCall() {
         return methodCall;
+    }
+
+    public void incrementCallCount() {
+        callCount++;
+    }
+
+    public int getCallCount() {
+        return callCount;
     }
 }
