@@ -1,7 +1,7 @@
 package com.odyss.codelens.graph;
 
 import java.time.LocalDateTime;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,8 +14,8 @@ public class CallGraph {
     public CallGraph() {
         this.id = UUID.randomUUID().toString();
         this.timestamp = LocalDateTime.now();
-        this.nodes = Collections.emptyList();
-        this.edges = Collections.emptyList();
+        this.nodes = new ArrayList<>();
+        this.edges = new ArrayList<>();
     }
 
     public List<GraphNode> getNodes() {
