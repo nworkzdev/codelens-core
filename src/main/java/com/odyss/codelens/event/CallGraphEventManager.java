@@ -1,11 +1,9 @@
 package com.odyss.codelens.event;
 
-import com.odyss.codelens.agent.DataCapture;
 import com.odyss.codelens.call.MethodCall;
 import com.odyss.codelens.graph.CallGraph;
 import com.odyss.codelens.graph.GraphNode;
 
-import java.util.Objects;
 
 public class CallGraphEventManager extends EventManager<CallGraph> {
 
@@ -24,15 +22,7 @@ public class CallGraphEventManager extends EventManager<CallGraph> {
     }
 
     public void onMethodCaptureEntry(MethodCall methodCall) {
-        var optionalNode = callGraph.getNodes().stream()
-                .filter(node -> Objects.equals(node.getMethodCall().getId(), methodCall.getId()))
-                .findFirst();
-
-        if (optionalNode.isPresent()) {
-            optionalNode.get().incrementCallCount();
-        } else {
-            callGraph.getNodes().add(new GraphNode(methodCall));
-        }
+        callGraph.getNodes().add(new GraphNode(methodCall));
 
         updateSubscribers(callGraph);
     }
